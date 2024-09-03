@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./components/Button";
 
@@ -7,6 +8,16 @@ export default function Home() {
 	const handleBtnClick = () => {
 		console.log("button is clicked");
 	};
+
+	const [cookies, setCookies] = useState<any[]>([]);
+
+	useEffect(() => {
+		fetch("/api/cookies")
+			.then((res) => res.json())
+			.then((data) => setCookies(data));
+	}, []);
+
+	console.log("cookies", cookies);
 
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -38,6 +49,19 @@ export default function Home() {
 			<div>
 				<h1>Smile Cookies App</h1>
 				<Button label="Click Me" onClick={handleBtnClick}></Button>
+				<div>
+					{cookies.map((cookie) => (
+						<div key={cookie.id}>
+							<h2>{cookie.name}</h2>
+							<p>{cookie.description}</p>
+							<img
+								src={cookie.imageUrl}
+								alt={cookie.name}
+								className="w-full h-48 object-cover"
+							></img>
+						</div>
+					))}
+				</div>
 			</div>
 
 			<div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
