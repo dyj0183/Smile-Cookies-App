@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.11.5",
+    "@apollo/client": "^3.11.6",
+    "@apollo/server": "^4.11.0",
+    "@as-integrations/next": "^3.1.0",
+    "apollo-server-micro": "^3.13.0",
     "aws-sdk": "^2.1687.0",
     "express": "^4.19.2",
     "graphql": "^16.9.0",
