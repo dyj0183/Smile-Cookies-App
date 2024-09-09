@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import handleFileUpload from "../../lib/handleFileUpload"; // Create this helper function
+import { GET_COOKIES } from "../cookies/page";
 
 const ADD_COOKIE = gql`
 	mutation AddCookie(
@@ -29,7 +30,9 @@ export default function AddCookieForm() {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [file, setFile] = useState<File | null>(null);
-	const [addCookie] = useMutation(ADD_COOKIE);
+	const [addCookie] = useMutation(ADD_COOKIE, {
+		refetchQueries: [{ query: GET_COOKIES }], // This will refetch the cookies
+	});
 
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.files) {

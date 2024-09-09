@@ -3,7 +3,7 @@
 import { gql, useQuery } from "@apollo/client";
 import AddCookieForm from "../components/AddCookieForm";
 
-const GET_COOKIES = gql`
+export const GET_COOKIES = gql`
 	query GetCookies {
 		cookies {
 			cookieId
