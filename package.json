@@ -12,15 +12,19 @@
     "@apollo/client": "^3.11.6",
     "@apollo/server": "^4.11.0",
     "@as-integrations/next": "^3.1.0",
+    "@aws-sdk/client-s3": "^3.645.0",
     "apollo-server-micro": "^3.13.0",
     "aws-sdk": "^2.1687.0",
     "express": "^4.19.2",
+    "formidable": "^3.5.1",
     "graphql": "^16.9.0",
     "next": "14.2.7",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@types/formidable": "^3.4.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
