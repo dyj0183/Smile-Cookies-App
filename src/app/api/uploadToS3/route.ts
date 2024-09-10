@@ -36,7 +36,6 @@ export async function POST(request: NextRequest) {
 			Key: fileName,
 			Body: buffer,
 			ContentType: file.type,
-			// ACL: "public-read",
 		};
 
 		console.log("Uploading file to S3 with params:", params);
