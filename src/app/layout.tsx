@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import ClientApolloProvider from "./components/ClientApolloProvider"; // Client-side ApolloProvider
+import "./global.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
