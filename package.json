@@ -15,6 +15,7 @@
     "@aws-sdk/client-s3": "^3.645.0",
     "apollo-server-micro": "^3.13.0",
     "aws-sdk": "^2.1687.0",
+    "axios": "^1.7.7",
     "express": "^4.19.2",
     "formidable": "^3.5.1",
     "graphql": "^16.9.0",
