@@ -47,7 +47,6 @@ export default function AddCookieForm() {
 
 		// 1. Upload image to S3
 		if (file) {
-			console.log("here is the file", file);
 			const imageUrl = await handleFileUpload(file); // Implement this to upload to S3
 			console.log("new image url", imageUrl);
 
