@@ -1,9 +1,13 @@
 "use client";
+import Link from "next/link";
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-2 bg-slate-100">
-			<h1 className="mt-20 bg-black">Welcome to NextJS's main page</h1>
+		<main className="flex min-h-screen flex-col items-center p-2">
+			<h1 className="mt-20">Welcome to NextJS's Main Page</h1>
+			<Link href="cookies">
+				<p className="bg-slate-400 p-2 mt-6 rounded-md">Go to Cookies Page</p>
+			</Link>
 		</main>
 	);
 }
