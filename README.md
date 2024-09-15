@@ -24,9 +24,9 @@ This is an application that showcases my ability to learn new things quickly and
 
 # Main Functionalities
 
-- Read images and cookies info from S3 and DynamoDb through GraphQL to display on the cookies page
-- Allow users to add cookies info
-- Send alert through email if dynamoDb data is missing either cookies name or description
+- Read images and cookies info from AWS S3 bucket and DynamoDb through GraphQL to display them on the cookies page
+- Allow users to add cookies info and save into S3 and DynamoDb
+- Set up AWS Lambda function with DynamoDb stream and AWS Cloudwatch, so it sends alert through email and displays in logs if dynamoDb data is missing either cookies name or description
 
 # Development Environment
 
@@ -49,3 +49,4 @@ This is an application that showcases my ability to learn new things quickly and
 # Future Work
 
 - Add update functionality
+- Add delete functionality
