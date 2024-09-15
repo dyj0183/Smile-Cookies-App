@@ -1,3 +1,32 @@
-export default function ShopifyPage() {
-	return <h1>Shopify Page</h1>;
+"use client";
+
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function ShopifyProducts() {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get("/api/shopify")
+			.then((response) => {
+				setProducts(response.data.products);
+				console.log("api response", response);
+			})
+			.catch((error) => {
+				console.error("Error fetching products:", error);
+			});
+	}, []);
+
+	return (
+		<div>
+			<h1>Shopify Products</h1>
+			{products.map((product) => (
+				<div key={product.id}>
+					<h2>{product.title}</h2>
+					{/* <p>{product.body_html}</p> */}
+				</div>
+			))}
+		</div>
+	);
 }
