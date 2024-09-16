@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AddToShopifyForm from "../components/AddToShopifyForm";
 
 interface Variant {
 	price: string;
@@ -38,14 +39,15 @@ export default function ShopifyProducts() {
 	return (
 		<div className="container mx-auto p-6">
 			<h1 className="text-3xl font-bold mb-8 text-center">Shopify Products</h1>
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12">
 				{products.map((product) => (
 					<div
 						key={product.id}
 						className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-200"
 					>
 						<img
-							src={product.image.src} // Display the product image
+							src={product.image.src}
 							alt={product.title}
 							className="w-full h-64 object-cover rounded-md mb-4"
 						/>
@@ -72,6 +74,14 @@ export default function ShopifyProducts() {
 						</p>
 					</div>
 				))}
+			</div>
+
+			{/* Add the form in a separate section with some spacing */}
+			<div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+				<h2 className="text-2xl font-bold mb-4 text-center">
+					Add a New Product
+				</h2>
+				<AddToShopifyForm />
 			</div>
 		</div>
 	);
