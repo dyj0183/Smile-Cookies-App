@@ -8,11 +8,16 @@ interface Variant {
 	inventory_quantity: number;
 }
 
+interface Image {
+	src: string;
+}
+
 // Define the product interface
 interface ShopifyProduct {
 	id: number;
 	title: string;
 	variants: Variant[];
+	image: Image;
 }
 
 export default function ShopifyProducts() {
@@ -39,6 +44,11 @@ export default function ShopifyProducts() {
 						key={product.id}
 						className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-200"
 					>
+						<img
+							src={product.image.src} // Display the product image
+							alt={product.title}
+							className="w-full h-64 object-cover rounded-md mb-4"
+						/>
 						<h2 className="text-xl font-semibold mb-2">{product.title}</h2>
 						<p className="text-gray-600">
 							Price:{" "}
@@ -48,8 +58,16 @@ export default function ShopifyProducts() {
 						</p>
 						<p className="text-gray-600">
 							Available Quantity:{" "}
-							<span className="font-bold text-green-500">
-								{product.variants[0].inventory_quantity}
+							<span
+								className={`font-bold ${
+									product.variants[0].inventory_quantity > 0
+										? "text-green-500"
+										: "text-red-500"
+								}`}
+							>
+								{product.variants[0].inventory_quantity > 0
+									? product.variants[0].inventory_quantity
+									: "Out of Stock"}
 							</span>
 						</p>
 					</div>
