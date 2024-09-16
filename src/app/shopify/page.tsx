@@ -3,8 +3,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// Define the product interface
+interface ShopifyProduct {
+	id: number;
+	title: string;
+}
+
 export default function ShopifyProducts() {
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState<ShopifyProduct[]>([]);
 
 	useEffect(() => {
 		axios
